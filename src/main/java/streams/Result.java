@@ -104,5 +104,4 @@ public class Result<V> {
     public static <V> V extractValue(Result<V> result) {
       return result.getValue();
     }
-
 }
