@@ -1,4 +1,4 @@
-package streams;
+package streams.toolkit;
 
 import java.util.function.Function;
 import java.util.function.Predicate;

@@ -1,4 +1,4 @@
-package streams;
+package streams.toolkit;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -13,7 +13,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import streams.Result.Filter;
+import streams.toolkit.Result.Filter;
 
 
 class ResultTest {
