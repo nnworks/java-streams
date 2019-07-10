@@ -4,7 +4,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
- * Class containing the immutable result value and a possible throwable of a map operation
+ * Class containing the immutable result value and a possible throwable of a map operation. Can be handy when streaming maps in parallel.
  * @param <V> the value type of the result
  */
 public class Result<V> {
@@ -81,12 +81,12 @@ public class Result<V> {
     }
 
     /**
-     * creates a lambda function that calls the success function when the result is not exceptional, or the exceptional function when it is.
+     * Creates a lambda function that calls the success function when the result is not exceptional, or the exceptional function when it is.
      * @param successhandler function called on success, with the result as parameter
      * @param exceptionalHandler function called in case the result has a throwable attached, with the result as parameter
      * @return the result of the success or exceptional call
      */
-    public static <V> Function<Result<V>, Result<V>> createHandler(Function<Result<V>, Result<V>> successhandler, Function<Result<V>, Result<V>> exceptionalHandler) {
+    public static <V> Function<Result<V>, Result<V>> createResultHandler(Function<Result<V>, Result<V>> successhandler, Function<Result<V>, Result<V>> exceptionalHandler) {
         return (p) -> {
             if (!p.hasThrowable()) {
                 return successhandler.apply(p);

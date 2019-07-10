@@ -97,7 +97,7 @@ class ResultTest {
     List<String> result = list.stream()
         .map(ResultTest::toResult)     										 // String in, Result out
         .map(ResultTest::setSomeExceptions)         										 // Result in, Result with sometimes an exception out
-        .map(Result.createHandler(                         // Result in, Result out
+        .map(Result.createResultHandler(                         // Result in, Result out
             (p)-> {
               return new Result<String>("handledNormally(" + p.getValue() + ")");
             },
@@ -121,7 +121,7 @@ class ResultTest {
         return list.stream().parallel()
             .map(ResultTest::toResult)
             .map(ResultTest::setSomeExceptions)
-            .map(Result.createHandler(                         // Result in, Result out
+            .map(Result.createResultHandler(                         // Result in, Result out
                 (p)-> {
                   return new Result<String>("handledNormally(" + p.getValue() + ")");
                 },
